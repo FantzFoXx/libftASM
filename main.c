@@ -9,6 +9,8 @@ void *
 
 	 void *
 	      memcpy(void *restrict dst, const void *restrict src, size_t n);
+		char *
+		     ft_strdup(const char *s1);
 
 int main()
 {
@@ -34,5 +36,8 @@ int main()
 	ft_memcpy(str, string, 3);fflush(stdout);
 	printf("\n");fflush(stdout);
 	printf("str %s\n", str);fflush(stdout);
+	char *dup = ft_strdup(str);
+	//ft_bzero(dup, ft_strlen(str));
+	printf("dup : %s\n", dup);
 	return (0);
 }
