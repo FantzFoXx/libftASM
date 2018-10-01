@@ -1,22 +1,27 @@
 global _ft_strcat
+extern _ft_strlen
+extern _ft_memcpy
 
 section .text
 _ft_strcat:
 	push rbp
 	mov rbp, rsp
-	cmp rax, 0
-	je _no
-	cmp rax, 0
-	je _no
-	je _yes
-
-_yes:
-	mov rax, 1
-	jmp _ret
-
-_no:
-	mov rax, 0
-	jmp _ret
+	cmp rdi, 0
+	je _ret
+	cmp rsi, 0
+	je _ret
+	push rdi
+	call _ft_strlen
+	mov rcx, rax
+	add rdi, rax ; s1 + taille
+	push rdi ; push s1 + taille
+	mov rdi, rsi ; s2
+	call _ft_strlen
+	mov rdx, rax ; s2 len
+	pop rdi ; get s1 + taille
+	mov byte[rdi + rax], 0
+	call _ft_memcpy
+	pop rax
 
 _ret:
 	leave

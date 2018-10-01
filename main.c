@@ -11,12 +11,17 @@ void *
 	      memcpy(void *restrict dst, const void *restrict src, size_t n);
 		char *
 		     ft_strdup(const char *s1);
+			 char *
+			      ft_strcat(char *restrict s1, const char *restrict s2);
+
 
 int main()
 {
 	char s = 'a';
 	//char string[] = "Bonjou\n";
 	char string[] = "abc";
+	char string1[] = "this mdr is ";
+	char string2[] = "a ptdr string";
 	char str[10];
 
 	if (ft_isalpha(s))
@@ -39,5 +44,12 @@ int main()
 	char *dup = ft_strdup(str);
 	//ft_bzero(dup, ft_strlen(str));
 	printf("dup : %s\n", dup);
+	char *cat = malloc(ft_strlen(string1) + ft_strlen(string2) + 1);
+	ft_bzero(cat, ft_strlen(string1) + ft_strlen(string2) + 1);
+	ft_memcpy(cat, string1);
+	//ft_strcat(cat, string2);
+	printf("addr :%p\n", cat);
+	printf("ret cat : %p\n", ft_strcat(cat, string2));
+	printf("cat : %s\n", cat);
 	return (0);
 }
