@@ -21,6 +21,7 @@ int main()
 	char string1[] = "this mdr is ";
 	char string2[] = "a ptdr string";
 	char str[10];
+	int	fd = open("lorem");
 
 	if (ft_isalpha(s))
 		printf("YES\n");fflush(stdout);
@@ -60,6 +61,8 @@ int main()
 	//ft_puts("");
 	printf("ft_puts return : %d\n", ft_puts(""));fflush(stdout);
 	printf("---------------\n");
+	printf("fd : %d\n", fd);
 	ft_cat(0);
+	ft_cat(fd);
 	return (0);
 }

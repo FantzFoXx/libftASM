@@ -12,16 +12,16 @@ _ft_cat:
 	mov rbp, rsp
 
 _setup:
-	;push size_read
-	;call _malloc
-	;mov r8, rax
 	sub rsp, size_read
 	lea r8, [rsp - size_read]
+	cmp rdi, 0
+	ja _ret
+	mov r10, rdi
 
 _read:
 	mov rsi, r8
 	mov rax, syscall_base + read
-	mov rdi, 0
+	mov rdi, r10
 	mov rdx, size_read
 	syscall
 	mov r9, rax
