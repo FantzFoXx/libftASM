@@ -1,18 +1,16 @@
 #include <unistd.h>
 #include <stdio.h>
+
 int	ft_isalpha(char s);
 void  bzero(void *s, size_t n);
 int	ft_toupper(int c);
 size_t	ft_strlen(char *s);
-void *
-     ft_memset(void *b, int c, size_t len);
-
-	 void *
-	      memcpy(void *restrict dst, const void *restrict src, size_t n);
-		char *
-		     ft_strdup(const char *s1);
-			 char *
-			      ft_strcat(char *restrict s1, const char *restrict s2);
+void *ft_memset(void *b, int c, size_t len);
+void *memcpy(void *restrict dst, const void *restrict src, size_t n);
+char *ft_strdup(const char *s1);
+char *ft_strcat(char *restrict s1, const char *restrict s2);
+int puts(const char *s);
+void ft_cat(int fd);
 
 
 int main()
@@ -51,5 +49,17 @@ int main()
 	printf("addr :%p\n", cat);
 	printf("ret cat : %p\n", ft_strcat(cat, string2));
 	printf("cat : %s\n", cat);
+	printf("ft_puts return : %d\n", ft_puts("Bonjour ! haha"));fflush(stdout);
+	printf("puts return : %d\n", puts("Bonjour ! haha"));fflush(stdout);
+	printf("ft_puts return : %d\n", ft_puts(0));fflush(stdout);
+	printf("puts return : %d\n", puts(0));fflush(stdout);
+	//printf("\n---------------\n");
+	//printf("ft_puts return : %d\n", ft_puts(""));fflush(stdout);
+	printf("\n---------------\n");
+	//printf("puts return : %d", puts(""));fflush(stdout);
+	//ft_puts("");
+	printf("ft_puts return : %d\n", ft_puts(""));fflush(stdout);
+	printf("---------------\n");
+	ft_cat(0);
 	return (0);
 }
