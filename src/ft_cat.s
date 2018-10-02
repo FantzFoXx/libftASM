@@ -6,19 +6,17 @@
 global _ft_cat
 extern _malloc
 
-section .data
-;string:
-;	.buf  times size_read byte 0
-
 section .text
 _ft_cat:
 	push rbp
 	mov rbp, rsp
 
 _setup:
-	push size_read
-	call _malloc
-	mov r8, rax
+	;push size_read
+	;call _malloc
+	;mov r8, rax
+	sub rsp, size_read
+	lea r8, [rsp - size_read]
 
 _read:
 	mov rsi, r8
@@ -49,5 +47,6 @@ _find_eof:
 	jmp _find_eof
 
 _ret:
+	add rsp, size_read
 	leave
 	ret
