@@ -15,7 +15,7 @@ _setup:
 	sub rsp, size_read
 	lea r8, [rsp - size_read]
 	cmp rdi, 0
-	ja _ret
+	jb _ret
 	mov r10, rdi
 
 _read:

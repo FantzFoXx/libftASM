@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
+#include <fcntl.h>
 
 int	ft_isalpha(char s);
 void  bzero(void *s, size_t n);
@@ -21,7 +22,7 @@ int main()
 	char string1[] = "this mdr is ";
 	char string2[] = "a ptdr string";
 	char str[10];
-	int	fd = open("lorem");
+	int	fd = open("lorem", O_RDONLY);
 
 	if (ft_isalpha(s))
 		printf("YES\n");fflush(stdout);
