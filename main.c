@@ -15,7 +15,7 @@ void ft_cat(int fd);
 size_t ft_index_fmatch(char *str, char match);
 size_t ft_index_lmatch(char *str, char match);
 
-int main()
+int main(int argc, char **argv)
 {
 	char s = 'a';
 	//char string[] = "Bonjou\n";
@@ -81,5 +81,9 @@ int main()
 	printf("fd : %d\n", fd);
 	ft_cat(0);
 	ft_cat(fd);
+	ft_cat(open(argv[0], O_RDONLY));
+	//ft_cat(fd);
+	//ft_cat(-42);
+	(void)argc;
 	return (0);
 }
