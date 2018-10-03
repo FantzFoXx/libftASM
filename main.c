@@ -12,7 +12,8 @@ char *ft_strdup(const char *s1);
 char *ft_strcat(char *restrict s1, const char *restrict s2);
 int puts(const char *s);
 void ft_cat(int fd);
-
+size_t ft_index_fmatch(char *str, char match);
+size_t ft_index_lmatch(char *str, char match);
 
 int main()
 {
@@ -57,6 +58,21 @@ int main()
 	printf("puts return : %d\n", puts(0));fflush(stdout);
 	//printf("\n---------------\n");
 	//printf("ft_puts return : %d\n", ft_puts(""));fflush(stdout);
+	printf("first match in %s : %d\n", "Bonjour", ft_index_fmatch("Bonjour", 'j'));fflush(stdout);
+	printf("first match in %s : %d\n", "Bonjour", ft_index_fmatch("Bonjour", 'B'));fflush(stdout);
+	printf("first match in %s : %d\n", "Bonjour", ft_index_fmatch("Bonjour", 'H'));fflush(stdout);
+	printf("first match in %s : %d\n", "Bonjour", ft_index_fmatch("Bonjour", 0));fflush(stdout);
+	printf("first match in %s : %d\n", "", ft_index_fmatch("", 'j'));fflush(stdout);
+	printf("first match in %s : %d\n", NULL, ft_index_fmatch(NULL, 'j'));fflush(stdout);
+	printf("last  match in %s : %d\n", "Bonjour", ft_index_lmatch("Bonjojr", 'j'));fflush(stdout);
+	printf("last  match in %s : %d\n", "Bonjour", ft_index_lmatch("BonjouB", 'B'));fflush(stdout);
+	printf("last  match in %s : %d\n", "Bonjour", ft_index_lmatch("Bonjour", 'H'));fflush(stdout);
+	printf("last  match in %s : %d\n", "Bonjour", ft_index_lmatch("Bonjour", 'r'));fflush(stdout);
+	printf("last  match in %s : %d\n", "Bonjour", ft_index_lmatch("Bonjour", 'o'));fflush(stdout);
+	printf("last  match in %s : %d\n", "Bonjour", ft_index_lmatch("Bonjour", 0));fflush(stdout);
+	printf("last  match in %s : %d\n", "", ft_index_lmatch("", 'j'));fflush(stdout);
+	printf("last  match in %s : %d\n", NULL, ft_index_lmatch(NULL, 'j'));fflush(stdout);
+
 	printf("\n---------------\n");
 	//printf("puts return : %d", puts(""));fflush(stdout);
 	//ft_puts("");

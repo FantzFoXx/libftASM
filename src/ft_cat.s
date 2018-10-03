@@ -4,7 +4,6 @@
 %define size_read 128*1024
 
 global _ft_cat
-extern _malloc
 
 section .text
 _ft_cat:
