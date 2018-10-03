@@ -8,7 +8,6 @@ _ft_index_lmatch:
 	cmp rdi, 0
 	je _not_found
 	call _ft_strlen
-	;mov rcx, 0
 
 _find_char:
 	cmp rax, 0
