@@ -4,6 +4,7 @@ section .text
 _ft_isdigit:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	cmp rdi, 48
 	jl _no
 	cmp rdi, 57

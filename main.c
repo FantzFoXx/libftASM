@@ -15,6 +15,7 @@ void ft_cat(int fd);
 size_t ft_index_fmatch(char *str, char match);
 size_t ft_index_lmatch(char *str, char match);
 void *ft_memalloc(size_t size);
+char *ft_strnew(size_t size);
 
 int main(int argc, char **argv)
 {
@@ -25,19 +26,20 @@ int main(int argc, char **argv)
 	char string2[] = "a ptdr string";
 	char str[10];
 	int	fd = open("lorem", O_RDONLY);
+	char *newstr = ft_strnew(ft_strlen(string2));
+
+	newstr = ft_strcat(newstr, string2);
+
+	printf("newstr : %s\n", newstr);
+
 
 	char *alloced = ft_memalloc(3);
 	char *alloced2 = ft_memalloc(3);
+	
+	alloced[0] = alloced[1] = 'a';
 
-	int i = 0;
-	while (1)
-	{
-		alloced[i] = 'a';
-		printf("%d\n", i);
-		i++;
-	}
-	printf("%s", alloced);
-
+	printf("alloced : %s\n", alloced);
+	
 	if (ft_isalpha(s))
 		printf("YES\n");fflush(stdout);
 

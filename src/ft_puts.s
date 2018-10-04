@@ -15,6 +15,7 @@ section .text
 _ft_puts:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	cmp rdi, 0
 	je _write_null
 	call _ft_strlen

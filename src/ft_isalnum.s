@@ -6,6 +6,7 @@ section .text
 _ft_isalnum:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	call _ft_isalpha
 	cmp rax, 1
 	je _yes

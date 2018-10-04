@@ -12,6 +12,7 @@ section .text
 _ft_cat:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 
 _setup:
 	lea r8, [rel buf]

@@ -4,6 +4,7 @@ section .text
 _ft_tolower:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	mov rax, rdi
 	cmp rax, 65
 	jl _ret

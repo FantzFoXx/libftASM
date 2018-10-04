@@ -5,6 +5,7 @@ section .text
 _ft_bzero:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	mov rdx, rsi
 	push rsi
 	mov rsi, 0

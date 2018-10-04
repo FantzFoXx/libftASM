@@ -7,6 +7,7 @@ section .text
 _ft_strdup:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	mov rax, rdi
 	cmp rdi, 0
 	je _ret

@@ -4,6 +4,7 @@ section .text
 _ft_index_fmatch:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	cmp rdi, 0
 	je _not_found
 	mov rcx, 0

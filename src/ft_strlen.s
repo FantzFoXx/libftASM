@@ -4,6 +4,7 @@ section .text
 _ft_strlen:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	mov rax, 0
 	cmp rdi, 0
 	je _ret

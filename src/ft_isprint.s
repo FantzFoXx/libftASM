@@ -4,6 +4,7 @@ section .text
 _ft_isprint:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	cmp rdi, 32
 	jl _no
 	cmp rdi, 126

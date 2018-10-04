@@ -4,6 +4,7 @@ section .text
 _ft_isascii:
 	push rbp
 	mov rbp, rsp
+	sub rsp, 16
 	cmp rdi, 0
 	jl _no
 	cmp rdi, 127
