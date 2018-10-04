@@ -10,11 +10,14 @@ _ft_memset:
 	cmp rdx, 0
 	je _ret
 	push rdi
+	push rcx
 	mov rcx, rdx
 	mov rax, rsi
 	rep stosb
 
 _ret:
-	pop rax
+	pop rcx
+	pop rdi
+	mov rax, rdi
 	leave
 	ret

@@ -6,8 +6,9 @@ _ft_strnew:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
-	inc rdi
+	;inc rdi
 	call _ft_memalloc
+	;dec rdi
 
 _ret:
 	leave

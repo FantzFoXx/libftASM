@@ -7,16 +7,16 @@ _ft_memalloc:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
-	mov rax, rdi
-	cmp rdi, 0
-	je _ret
 	mov r8, rdi
 	call _malloc
-	cmp rax, 0
-	je _ret
+	mov rdi, r8
+	push rdi
+	push rsi
+	mov rsi, rdi
 	mov rdi, rax
-	mov rsi, r8
 	call _ft_bzero
+	pop rsi
+	pop rdi
 
 _ret:
 	leave
