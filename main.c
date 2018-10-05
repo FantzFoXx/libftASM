@@ -23,22 +23,23 @@ int test_memset(char **str, int i)
 {
 	size_t len;
 	int ret = 1;
+	char *cmp;
 	while (--i >= 0)
 	{
 		len = ft_strlen(str[i]);
-		//printf("len : %d\n", len);
 		len = rand() % len;
-		//printf("trunc : %d\n", len);
+		cmp = ft_strdup(str[i]);
 		ft_memset(str[i], 'b', len);
+		memset(cmp, 'b', len);
 		if ((ft_index_lmatch(str[i], 'b') == len - 1) &&
-			(str[i][ft_index_lmatch(str[i], 'b') + 1] == 'a'))
+			(str[i][ft_index_lmatch(str[i], 'b') + 1] == 'a') &&
+			strcmp(str[i], cmp) == 0)
 				printf(".");
 		else
 		{
 			printf("x");
 			ret = 0;
 		}
-		//printf("%s\n", str[i]);
 	}
 	printf("\n");
 	return (ret);
@@ -488,6 +489,153 @@ int	test_strlen()
 	return (ret);
 }
 
+int test_bzero()
+{
+	char *one = ft_strdup("dfsa;lksjd;aslksklasslfsaljkfsa;jsfadjkl");
+	char *one2 = ft_strdup("dfsa;lksjd;aslksklasslfsaljkfsa;jsfadjkl");
+	char *two = ft_strdup("df");
+	char *two2 = ft_strdup("df");
+	char *three = ft_strdup("d");
+	char *three2 = ft_strdup("d");
+	char *four = ft_strdup("");
+	char *four2 = ft_strdup("");
+	int ret = 1;
+
+	size_t len;
+	len = ft_strlen(one) - 10;
+	ft_bzero(one, len);
+	bzero(one2, len);
+	if (memcmp(one, one2, len) == 0)
+		printf(".");
+	else 
+	{
+		ret = 0;
+		printf("x");
+	}
+	len = ft_strlen(two);
+	ft_bzero(two, len);
+	bzero(two2, len);
+	if (memcmp(two, two2, len) == 0)
+		printf(".");
+	else 
+	{
+		ret = 0;
+		printf("x");
+	}
+	len = ft_strlen(three);
+	ft_bzero(three, len);
+	bzero(three2, len);
+	if (memcmp(three, three2, len) == 0)
+		printf(".");
+	else 
+	{
+		ret = 0;
+		printf("x");
+	}
+	len = ft_strlen(four);
+	ft_bzero(four, len);
+	bzero(four2, len);
+	if (memcmp(four, four2, len) == 0)
+		printf(".");
+	else 
+	{
+		ret = 0;
+		printf("x");
+	}
+	printf("\n");
+	 return (ret);
+}
+
+int test_puts()
+{
+	printf("Visual diff /!\\ :\n");
+	printf("*** REAL ***\n");
+	puts("");
+	printf("***  FT  ***\n");
+	ft_puts("");
+	printf("*** REAL ***\n");
+	puts("Bonjour");
+	printf("***  FT  ***\n");
+	ft_puts("Bonjour");
+	printf("*** REAL ***\n");
+	puts(NULL);
+	printf("***  FT  ***\n");
+	ft_puts(NULL);
+	return (1);
+}
+
+int test_strcat()
+{
+	int ret = 1;
+
+	char *test = ft_strnew(20);
+	char *test2 = ft_strnew(20);
+
+	test = ft_strcat(test, "Bonjour");
+	test2 = ft_strcat(test2, "Bonjour");
+
+	if (strcmp(test, test2) == 0)
+		printf(".");
+	else
+	{
+		printf("x");
+		ret = 0;
+	}
+	test = ft_strcat(test, "");
+	test2 = ft_strcat(test2, "");
+
+	if (strcmp(test, test2) == 0)
+		printf(".");
+	else
+	{
+		printf("x");
+		ret = 0;
+	}
+	test = ft_strcat(test, "Bonjour");
+	test2 = ft_strcat(test2, "Bonjour");
+
+	if (strcmp(test, test2) == 0)
+		printf(".");
+	else
+	{
+		printf("x");
+		ret = 0;
+	}
+	test = ft_strcat(test, "Bonjou");
+	test2 = ft_strcat(test2, "Bonjou");
+
+	if (strcmp(test, test2) == 0)
+		printf(".");
+	else
+	{
+		printf("x");
+		ret = 0;
+	}
+	test = ft_strcat(test, "r");
+	test2 = ft_strcat(test2, "r");
+
+	if (strcmp(test, test2) == 0)
+		printf(".");
+	else
+	{
+		printf("x");
+		ret = 0;
+	}
+	printf("\n");
+	return (ret);
+}
+
+int test_cat()
+{
+	printf("\ntesting stdin (CTRL + D to end)\n");
+	ft_cat(0);
+	printf("\ntesting -42\n");
+	ft_cat(-42);
+	printf("\ntesting on a file (libfts.a)\n");
+	ft_cat(open("libfts.a", O_RDONLY));
+	return (1);
+}
+
 int main(void)
 {
 	printf("***************\nTesting ft_strnew\n");
@@ -545,6 +693,27 @@ int main(void)
 		printf("ft_strdup [OK]\n");
 	else
 		printf("ft_strdup [FAIL]\n");
+
+	printf("***************\nTesting ft_bzero\n");
+	if (test_bzero())
+		printf("ft_bzero [OK]\n");
+	else
+		printf("ft_bzero [FAIL]\n");
 	
+	printf("***************\nTesting ft_puts\n");
+	if (test_puts())
+		printf("ft_puts [OK]\n");
+	else
+		printf("ft_puts [FAIL]\n");
+	printf("***************\nTesting ft_strcat\n");
+	if (test_strcat())
+		printf("ft_strcat [OK]\n");
+	else
+		printf("ft_strcat [FAIL]\n");
+	printf("***************\nTesting ft_cat\n");
+	if (test_cat())
+		printf("ft_cat [OK]\n");
+	else
+		printf("ft_cat [FAIL]\n");
 	return (0);
 }
