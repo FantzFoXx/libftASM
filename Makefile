@@ -6,7 +6,7 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/28 05:27:21 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/05 12:57:40 by udelorme         ###   ########.fr        #
+#    Updated: 2018/10/05 17:09:04 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS = -f macho64
 SRC_PATH = src/
 OBJ_PATH = obj/
 
-SRC = ft_bzero.s ft_isalpha.s ft_isdigit.s ft_memcpy.s ft_puts.s ft_strdup.s  ft_tolower.s ft_isalnum.s ft_isascii.s ft_isprint.s ft_memset.s  ft_strcat.s  ft_strlen.s  ft_toupper.s ft_cat.s ft_index_fmatch.s ft_index_lmatch.s ft_memalloc.s ft_strnew.s
+SRC = ft_bzero.s ft_isalpha.s ft_isdigit.s ft_memcpy.s ft_puts.s ft_strdup.s  ft_tolower.s ft_isalnum.s ft_isascii.s ft_isprint.s ft_memset.s  ft_strcat.s  ft_strlen.s  ft_toupper.s ft_cat.s ft_index_fmatch.s ft_index_lmatch.s ft_memalloc.s ft_strnew.s ft_strstr.s
 
 OBJ = $(addprefix $(OBJ_PATH), $(SRC:.s=.o))
 

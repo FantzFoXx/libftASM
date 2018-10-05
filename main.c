@@ -16,6 +16,7 @@ size_t ft_index_fmatch(char *str, char match);
 size_t ft_index_lmatch(char *str, char match);
 void *ft_memalloc(size_t size);
 char *ft_strnew(size_t size);
+char *ft_strstr(char *s1, char *s2);
 
 int iteration = 200;
 
@@ -637,6 +638,15 @@ int test_cat()
 	return (1);
 }
 
+int test_strstr()
+{
+	char *s = "Bonjour je suis conent";
+
+	printf("%s\n", ft_strstr(s, "Bonjour"));
+	printf("\n");
+	return (1);
+}
+
 int main(void)
 {
 	printf("***************\nTesting ft_strnew\n");
@@ -716,5 +726,11 @@ int main(void)
 		printf("ft_cat [OK]\n");
 	else
 		printf("ft_cat [FAIL]\n");
+	printf("***************\nTesting ft_strstr\n");
+	if (test_strstr())
+		printf("ft_strstr [OK]\n");
+	else
+		printf("ft_strstr [FAIL]\n");
+
 	return (0);
 }
