@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 NAME = libfts.a
-CC = ~/.brew/bin/nasm
-#CC = ~/Downloads/nasm-2.13.03/nasm
+#CC = ~/.brew/bin/nasm
+CC = ~/Downloads/nasm-2.13.03/nasm
 FLAGS = -f macho64
 SRC_PATH = src/
 OBJ_PATH = obj/

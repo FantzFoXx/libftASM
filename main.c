@@ -506,17 +506,10 @@ int main(void)
 	else
 		printf("ft_memcpy [FAIL]\n");
 	printf("***************\nTesting ft_strdup\n");
-	//if (test_strdup())
-	//	printf("ft_strdup [OK]\n");
-	//else
-	//	printf("ft_strdup [FAIL]\n");
+	if (test_strdup())
+		printf("ft_strdup [OK]\n");
+	else
+		printf("ft_strdup [FAIL]\n");
 	
-	char *testfilsdepute;
-	//testfilsdepute = ft_strdup("Bonjour");
-	printf("%d\n", ft_strdup("Bonjour"));
-	//printf("str %s\n", testfilsdepute);
-	
-
-
 	return (0);
 }

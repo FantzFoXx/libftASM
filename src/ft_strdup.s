@@ -9,21 +9,23 @@ _ft_strdup:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	push rdi
 	call _ft_strlen
 	mov rdi, rax
 	mov r8, rax
+	push rdi
 	call _ft_strnew
-	
-	mov rax, r8
-	jmp _ret
+	cmp rax, 0
+	je _ret
 
-	mov r9, rdi
+_cpy:
+	pop rcx
+	inc rcx
 	mov rdi, rax
-	mov rsi, r9
-	mov rdx, r8
-	mov rax, r8
-	;call _ft_memcpy
-
+	pop rsi
+	cld
+	rep movsb
+	
 _ret:
 	leave
 	ret
