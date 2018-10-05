@@ -7,7 +7,7 @@ void  bzero(void *s, size_t n);
 int	ft_toupper(int c);
 size_t	ft_strlen(char *s);
 void *ft_memset(void *b, int c, size_t len);
-void *ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void *ft_memcpy(void *dst, const void *src, size_t n);
 char *ft_strdup(const char *s1);
 char *ft_strcat(char *restrict s1, const char *restrict s2);
 int puts(const char *s);
@@ -440,9 +440,10 @@ int	test_memcpy()
 	{
 		real = ft_strnew(strlen(strr));
 		my = ft_strnew(strlen(strr));
-		real = memcpy(real, strr, 10);
-		my = ft_memcpy(my, strr, 10);
-		if (strcmp(my, real) != 0)
+		int s = rand() % 15;
+		real = memcpy(real, strr, s);
+		my = ft_memcpy(my, strr, s);
+		if (memcmp(my, real, s) != 0)
 		{
 			printf("real : '%s'\n", real);
 			printf("my : '%s'\n", my);
