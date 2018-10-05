@@ -5,12 +5,12 @@ _ft_memset:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	push rdi
+	push rcx
 	cmp rdi, 0
 	je _ret
 	cmp rdx, 0
 	je _ret
-	push rdi
-	push rcx
 	mov rcx, rdx
 	mov rax, rsi
 	rep stosb
