@@ -19,6 +19,31 @@ char *ft_strnew(size_t size);
 
 int iteration = 200;
 
+int test_memset(char **str, int i)
+{
+	size_t len;
+	int ret = 1;
+	while (--i >= 0)
+	{
+		len = ft_strlen(str[i]);
+		//printf("len : %d\n", len);
+		len = rand() % len;
+		//printf("trunc : %d\n", len);
+		ft_memset(str[i], 'b', len);
+		if ((ft_index_lmatch(str[i], 'b') == len - 1) &&
+			(str[i][ft_index_lmatch(str[i], 'b') + 1] == 'a'))
+				printf(".");
+		else
+		{
+			printf("x");
+			ret = 0;
+		}
+		//printf("%s\n", str[i]);
+	}
+	printf("\n");
+	return (ret);
+}
+
 int test_rand_strnew()
 {
 	char *newstr[iteration];
@@ -42,6 +67,13 @@ int test_rand_strnew()
 		printf(".");
 		i++;
 	}
+
+	printf("\n***************\nTesting ft_memset\n");
+	if (test_memset(newstr, i))
+		printf("ft_memset [OK]\n");
+	else
+		printf("ft_memset [FAIL]\n");
+
 	i = -1;
 	printf("\nFree tests : ");
 	while (++i < iteration)
@@ -377,6 +409,9 @@ int	test_strdup()
 		}
 		else
 			printf(".");
+		free(real);
+		free(my);
+		printf(".");
 		i++;
 	}
 	printf("\n");

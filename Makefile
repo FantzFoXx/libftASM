@@ -6,13 +6,13 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/28 05:27:21 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/04 11:34:14 by udelorme         ###   ########.fr        #
+#    Updated: 2018/10/05 12:57:40 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libfts.a
-#CC = ~/.brew/bin/nasm
-CC = ~/Downloads/nasm-2.13.03/nasm
+CC = ~/.brew/bin/nasm
+#CC = ~/Downloads/nasm-2.13.03/nasm
 FLAGS = -f macho64
 SRC_PATH = src/
 OBJ_PATH = obj/

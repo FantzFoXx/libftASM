@@ -5,15 +5,16 @@ _ft_strlen:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
-	mov rax, 0
-	cmp rdi, 0
-	je _ret
-
-_count:
-	cmp byte[rdi+rax], 0x0
-	je _ret
-	inc rax
-	jmp _count
+	push rdi
+	xor al, al
+	xor rcx, rcx
+	not rcx
+	cld
+	repne scasb
+	not rcx
+	dec rcx
+	mov rax, rcx
+	pop rdi
 
 _ret:
 	leave
