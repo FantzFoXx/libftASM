@@ -640,11 +640,46 @@ int test_cat()
 
 int test_strstr()
 {
-	char *s = "Bonjour je suis conent";
+	char *strings[] = {
+		"Test numero 1",
+		"2eme test qui s'affiche a partir d'ici",
+		"Bonjour",
+		"a",
+		"ab",
+		""
+	};
+	char *search[] = {
+		"numero",
+		"ici",
+		"devrait retourner null",
+		"a",
+		"b",
+		""
+	};
 
-	printf("%s\n", ft_strstr(s, "Bonjour"));
+	int i = 0;
+	int ret = 1;
+	char *me;
+	char *real;
+
+	while (i < 6)
+	{
+		me = ft_strstr(strings[i], search[i]);
+		real = strstr(strings[i], search[i]);
+		if ((me == NULL && real == NULL) || strcmp(me, real) == 0)
+		{
+			printf(".");
+		}
+		else
+		{
+			ret = 0;
+			printf("x");
+		}
+		i++;
+	}
+
 	printf("\n");
-	return (1);
+	return (ret);
 }
 
 int main(void)
