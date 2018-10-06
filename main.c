@@ -524,6 +524,8 @@ int test_cat()
 	ft_cat(0);
 	printf("\ntesting -42\n");
 	ft_cat(-42);
+	printf("\ntesting 42\n");
+	ft_cat(42);
 	printf("\ntesting on a file (libfts.a)\n");
 	ft_cat(open("libfts.a", O_RDONLY));
 	return (1);
