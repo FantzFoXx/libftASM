@@ -6,7 +6,7 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/06 14:08:58 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/06 14:08:59 by udelorme         ###   ########.fr        #
+#    Updated: 2018/10/06 15:13:59 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ _ft_strnew:
 	sub rsp, 16
 	inc rdi
 	call _ft_memalloc
-	;dec rdi
 
 _ret:
 	leave

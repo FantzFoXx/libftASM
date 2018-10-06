@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/10/06 14:08:50 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/06 14:29:37 by udelorme         ###   ########.fr        #
+#    Created: 2018/10/06 15:09:48 by udelorme          #+#    #+#              #
+#    Updated: 2018/10/06 15:11:31 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ _ft_strdup:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	xor rax, rax
 	cmp rdi, 0
 	je _ret
 	push rdi
