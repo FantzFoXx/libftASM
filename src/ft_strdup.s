@@ -6,14 +6,12 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/06 14:08:50 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/06 14:08:51 by udelorme         ###   ########.fr        #
+#    Updated: 2018/10/06 14:29:37 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 global _ft_strdup
-extern _malloc
 extern _ft_strlen
-extern _ft_memcpy
 extern _ft_strnew
 
 section .text
@@ -29,8 +27,8 @@ _ft_strdup:
 	mov r8, rax
 	push rdi
 	call _ft_strnew
-	;cmp rax, 0
-	;je _ret
+	cmp rax, 0
+	je _ret_malloc_err
 
 _cpy:
 	pop rcx
@@ -39,6 +37,12 @@ _cpy:
 	pop rsi
 	cld
 	rep movsb
+	jmp _ret
+
+_ret_malloc_err:
+	pop rcx
+	pop rsi
+	mov rax, 0
 	
 _ret:
 	leave

@@ -6,7 +6,7 @@
 /*   By: udelorme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/06 14:09:21 by udelorme          #+#    #+#             */
-/*   Updated: 2018/10/06 14:11:01 by udelorme         ###   ########.fr       */
+/*   Updated: 2018/10/06 14:49:54 by udelorme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ char	*ft_strdup(const char *s1);
 char	*ft_strcat(char *s1, const char *s2);
 int		ft_puts(const char *s);
 void	ft_cat(int fd);
-size_t	ft_index_fmatch(char *str, char match);
-size_t	ft_index_lmatch(char *str, char match);
+int		ft_index_fmatch(char *str, char match);
+int		ft_index_lmatch(char *str, char match);
 void	*ft_memalloc(size_t size);
 char	*ft_strnew(size_t size);
+char	*ft_strstr(const char *s1, const char *s2);
 
 #endif

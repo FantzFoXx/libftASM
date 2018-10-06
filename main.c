@@ -1,28 +1,16 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include "includes/libfts.h"
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 
-int	ft_isalpha(char s);
-void  bzero(void *s, size_t n);
-int	ft_toupper(int c);
-size_t	ft_strlen(char *s);
-void *ft_memset(void *b, int c, size_t len);
-void *ft_memcpy(void *dst, const void *src, size_t n);
-char *ft_strdup(const char *s1);
-char *ft_strcat(char *restrict s1, const char *restrict s2);
-int puts(const char *s);
-void ft_cat(int fd);
-size_t ft_index_fmatch(char *str, char match);
-size_t ft_index_lmatch(char *str, char match);
-void *ft_memalloc(size_t size);
-char *ft_strnew(size_t size);
-char *ft_strstr(char *s1, char *s2);
-
-int iteration = 200;
+int iteration = 2000; // nb of iteration for memalloc, strdup, strnew
 
 int test_memset(char **str, int i)
 {
-	size_t len;
+	int len;
 	int ret = 1;
 	char *cmp;
 	while (--i >= 0)
@@ -385,7 +373,6 @@ int test_toupper()
 
 int	test_strdup()
 {
-	char *str;
 	char *my;
 	char *real;
 	int ret = 1;
@@ -422,7 +409,6 @@ int	test_strdup()
 
 int	test_memcpy()
 {
-	char *str;
 	char *my;
 	char *real;
 	int ret = 1;
@@ -461,7 +447,6 @@ int	test_memcpy()
 
 int	test_strlen()
 {
-	char *str;
 	size_t my;
 	size_t real;
 	int ret = 1;
@@ -682,6 +667,66 @@ int test_strstr()
 	return (ret);
 }
 
+int test_fmatch()
+{
+	char *strings[] = {
+		"Test numero 1",
+		"2eme test",
+		"Bonjour",
+		NULL,
+		"ab",
+		""
+	};
+	int ret = 1;
+	char *search = "neyhat";
+	int rets[] = {5, 1, -1, -1, 0, -1};
+	int i = 0;
+
+	while (i < 6)
+	{
+		if (ft_index_fmatch(strings[i], search[i]) == rets[i])
+			printf(".");
+		else
+		{
+			ret = 0;
+			printf("x");
+		}
+		i++;
+	}
+	printf("\n");
+	return (ret);
+}
+
+int test_lmatch()
+{
+	char *strings[] = {
+		"Test numero 1",
+		"2eme test",
+		"Bonjour",
+		NULL,
+		"ab",
+		""
+	};
+	int ret = 1;
+	char *search = "neyhat";
+	int rets[] = {5, 6, -1, -1, 0, -1};
+	int i = 0;
+
+	while (i < 6)
+	{
+		if (ft_index_lmatch(strings[i], search[i]) == rets[i])
+			printf(".");
+		else
+		{
+			ret = 0;
+			printf("x");
+		}
+		i++;
+	}
+	printf("\n");
+	return (ret);
+}
+
 int main(void)
 {
 	printf("***************\nTesting ft_strnew\n");
@@ -766,6 +811,16 @@ int main(void)
 		printf("ft_strstr [OK]\n");
 	else
 		printf("ft_strstr [FAIL]\n");
+	printf("***************\nTesting ft_index_fmatch\n");
+	if (test_fmatch())
+		printf("ft_index_fmatch [OK]\n");
+	else
+		printf("ft_index_fmatch [FAIL]\n");
+	printf("***************\nTesting ft_index_lmatch\n");
+	if (test_lmatch())
+		printf("ft_index_lmatch [OK]\n");
+	else
+		printf("ft_index_lmatch [FAIL]\n");
 
 	return (0);
 }

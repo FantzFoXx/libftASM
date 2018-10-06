@@ -6,7 +6,7 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/06 14:09:02 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/06 14:09:03 by udelorme         ###   ########.fr        #
+#    Updated: 2018/10/06 14:24:05 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,13 +54,6 @@ _ret_null:
 	mov rax, 0
 	leave
 	ret
-
-;_ret_s1:
-;	pop rsi
-;	pop rdi
-;	mov rax, rdi
-;	leave
-;	ret
 
 _ret:
 	add rdi, rax

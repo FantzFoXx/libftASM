@@ -6,7 +6,7 @@
 #    By: udelorme <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/06 14:08:31 by udelorme          #+#    #+#              #
-#    Updated: 2018/10/06 14:08:32 by udelorme         ###   ########.fr        #
+#    Updated: 2018/10/06 14:23:30 by udelorme         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ _ft_memalloc:
 	sub rsp, 16
 	mov r8, rdi
 	call _malloc
+	cmp rax, 0
+	je _ret
 	mov rdi, r8
 	push rdi
 	push rsi
