@@ -43,17 +43,12 @@ int test_rand_strnew()
 	while (i < iteration)
 	{
 		r = (rand() % 2000) + 1;
-		//printf("length %d\n", r);
-		//	printf("pass new\n");
 		newstr[i] = ft_strnew(r);
-		//	printf("end new\n");
 		int j = -1;
 		while (++j < r)
 		{
 			newstr[i][j] = 'a';
 		}
-		//printf("%s\n", newstr[i]);
-		//printf("end iteration\n");
 		printf(".");
 		i++;
 	}
@@ -68,8 +63,6 @@ int test_rand_strnew()
 	printf("\nFree tests : ");
 	while (++i < iteration)
 	{
-		//printf("freeing newstr[%d]\n", i);
-		//
 		printf(".");
 		free(newstr[i]);
 	}
@@ -86,17 +79,12 @@ int test_rand_memalloc()
 	while (i < iteration)
 	{
 		r = (rand() % 2000) + 1;
-		//printf("length %d\n", r);
-		//	printf("pass new\n");
 		newstr[i] = ft_memalloc(r);
-		//	printf("end new\n");
 		int j = -1;
 		while (++j < r)
 		{
 			newstr[i][j] = 'a';
 		}
-		//printf("%s\n", newstr[i]);
-		//printf("end iteration\n");
 		printf(".");
 		i++;
 	}
@@ -104,8 +92,6 @@ int test_rand_memalloc()
 	printf("\nFree tests : ");
 	while (++i < iteration)
 	{
-		//printf("freeing newstr[%d]\n", i);
-		//
 		printf(".");
 		free(newstr[i]);
 	}
@@ -126,7 +112,6 @@ int	test_isalpha()
 		
 		if (is != real)
 		{
-			//printf("testing : %c\n", c);
 			printf("\nft_isalpha : ");
 			if (is)
 				printf("YES | ");
@@ -156,22 +141,8 @@ int	test_isdigit()
 		int real = 0;
 		is = ft_isdigit(c);
 		real = isdigit(c);
-		/*
-		printf("testing : %c\n", c);
-		printf("ft_isdigit : ");
-		if (is)
-			printf("YES | ");
-		else
-			printf("NO | ");
-		printf("isdigit : ");
-		if (is)
-			printf("YES\n");
-		else
-			printf("NO\n");
-		*/
 		if (is != real)
 		{
-			//printf("testing : %c\n", c);
 			printf("\nft_isalpha : ");
 			if (is)
 				printf("YES | ");
@@ -201,22 +172,8 @@ int	test_isprint()
 		int real = 0;
 		is = ft_isprint(c);
 		real = isprint(c);
-		/*
-		printf("testing : %c\n", c);
-		printf("ft_isprint : ");
-		if (is)
-			printf("YES | ");
-		else
-			printf("NO | ");
-		printf("isprint : ");
-		if (is)
-			printf("YES\n");
-		else
-			printf("NO\n");
-			*/
 		if (is != real)
 		{
-			//printf("testing : %c\n", c);
 			printf("\nft_isalpha : ");
 			if (is)
 				printf("YES | ");
@@ -246,22 +203,8 @@ int	test_isalnum()
 		int real = 0;
 		is = ft_isalnum(c);
 		real = isalnum(c);
-		/*
-		printf("testing : %c\n", c);
-		printf("ft_isalnum : ");
-		if (is)
-			printf("YES | ");
-		else
-			printf("NO | ");
-		printf("isalnum : ");
-		if (is)
-			printf("YES\n");
-		else
-			printf("NO\n");
-			*/
 		if (is != real)
 		{
-			//printf("testing : %c\n", c);
 			printf("\nft_isalpha : ");
 			if (is)
 				printf("YES | ");
@@ -291,22 +234,8 @@ int test_tolower()
 		int real = 0;
 		is = ft_tolower(c);
 		real = tolower(c);
-		/*
-		printf("testing : %c\n", c);
-		printf("ft_tolower : ");
-		if (is)
-			printf("YES | ");
-		else
-			printf("NO | ");
-		printf("tolower : ");
-		if (is)
-			printf("YES\n");
-		else
-			printf("NO\n");
-			*/
 		if (is != real)
 		{
-			//printf("testing : %c\n", c);
 			printf("\nft_isalpha : ");
 			if (is)
 				printf("YES | ");
@@ -336,22 +265,8 @@ int test_toupper()
 		int real = 0;
 		is = ft_toupper(c);
 		real = toupper(c);
-		/*
-		printf("testing : %c\n", c);
-		printf("ft_toupper : ");
-		if (is)
-			printf("YES | ");
-		else
-			printf("NO | ");
-		printf("toupper : ");
-		if (is)
-			printf("YES\n");
-		else
-			printf("NO\n");
-			*/
 		if (is != real)
 		{
-			//printf("testing : %c\n", c);
 			printf("\nft_isalpha : ");
 			if (is)
 				printf("YES | ");
@@ -412,14 +327,6 @@ int	test_memcpy()
 	char *my;
 	char *real;
 	int ret = 1;
-	/*char *strings[] = {
-		"a",
-		"ab",
-		"test",
-		"asl;dasl;jklskdfakfsdlkfjskjaljkslsalksjsfjdklsljf",
-		""
-	};
-	*/
 	char strr[] = "a;sdlkfjasd;flkjasd;flkjasdf;lkjasdf;lkjasdf;lkjasdf";
 
 	int i = 0;
@@ -434,7 +341,6 @@ int	test_memcpy()
 		{
 			printf("real : '%s'\n", real);
 			printf("my : '%s'\n", my);
-			//printf("\nft_strdup diff on '%s'\n", strings[i]);
 			ret = 0;
 		}
 		else
@@ -801,11 +707,6 @@ int main(void)
 		printf("ft_strcat [OK]\n");
 	else
 		printf("ft_strcat [FAIL]\n");
-	printf("***************\nTesting ft_cat\n");
-	if (test_cat())
-		printf("ft_cat [OK]\n");
-	else
-		printf("ft_cat [FAIL]\n");
 	printf("***************\nTesting ft_strstr\n");
 	if (test_strstr())
 		printf("ft_strstr [OK]\n");
@@ -821,6 +722,10 @@ int main(void)
 		printf("ft_index_lmatch [OK]\n");
 	else
 		printf("ft_index_lmatch [FAIL]\n");
-
+	printf("***************\nTesting ft_cat\n");
+	if (test_cat())
+		printf("ft_cat [OK]\n");
+	else
+		printf("ft_cat [FAIL]\n");
 	return (0);
 }
